@@ -24,7 +24,7 @@ class ModernChatBot:
             response = self.client.chat.completions.create(
                 model=model,
                 messages=self.conversation_history,
-                reasoning_effort="low"
+                temperature=1
             )
             
             assistant_message = response.choices[0].message.content
@@ -64,7 +64,7 @@ def main():
                 break
             elif user_input.lower() in ['reset', 'clear']:
                 chatbot.reset_conversation()
-                chatbot.set_system_prompt(system_prompt)
+                chatbot.set_system_prompt(SYSTEM_PROMPT_EN)
                 print("🔄 Conversation has been reset!")
                 continue
             elif user_input.lower() in ['history']:
