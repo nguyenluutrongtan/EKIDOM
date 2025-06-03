@@ -17,7 +17,7 @@ class ModernChatBot:
     def add_message(self, role, content):
         self.conversation_history.append({"role": role, "content": content})
     
-    def get_response(self, user_message, model="gpt-4.1"):
+    def get_response(self, user_message, model="gpt-4o-mini"):
         self.add_message("user", user_message)
         
         try:
